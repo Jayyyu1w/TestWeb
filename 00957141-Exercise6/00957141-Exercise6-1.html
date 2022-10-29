@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Function</title>
+    <style type="text/css">
+        li {
+            display: inline;
+            margin-right: 10px;
+        }
+
+        ol {
+            margin-left: 0;
+            padding-left: 0;
+        }
+
+        img.dice {
+            width: 100px;
+            height: 100px;
+        }
+
+        img.congrats {
+            width: 440px;
+        }
+
+        #msg {
+            font-family: Helvetica, "Microsoft YaHei", "LiHei Pro", TW-Kai;
+            font-size: 120%;
+            color: navy;
+        }
+    </style>
+    <script>
+        var die1Img;
+        var die2Img;
+        var die3Img;
+        var die4Img;
+        function start() {
+            var button = document.getElementById("rollButton");
+            var buttonCheat1 = document.getElementById("cheatButton");
+            var buttonCheat2 = document.getElementById("cheatButton2");
+            button.addEventListener("click", rollDice, false);
+            buttonCheat1.addEventListener("click", rollOnePt, false);
+            buttonCheat2.addEventListener("click", rollEighteen, false);
+            die1Img = document.getElementById("die1");
+            die2Img = document.getElementById("die2");
+            die3Img = document.getElementById("die3");
+            die4Img = document.getElementById("die4");
+        }
+        function rollOnePt() {
+            var dieValue = Math.floor(1 + Math.random() * 6);
+            die1Img.setAttribute("src", "die" + dieValue + ".jpg");
+            die1Img.setAttribute("alt", "die image with " + dieValue + " spot(s)");
+            die2Img.setAttribute("src", "die" + dieValue + ".jpg");
+            die2Img.setAttribute("alt", "die image with " + dieValue + " spot(s)");
+            die3Img.setAttribute("src", "die" + dieValue + ".jpg");
+            die3Img.setAttribute("alt", "die image with " + dieValue + " spot(s)");
+            die4Img.setAttribute("src", "die" + dieValue + ".jpg");
+            die4Img.setAttribute("alt", "die image with " + dieValue + " spot(s)");
+            msg.innerHTML = '<p>Congratulations! Your roll is "一色"</p><img src = "congrats.png">'
+        }
+        function shuffleSort(arr) {
+            var n = arr.length;
+            while (n--) {
+                var index = Math.floor(Math.random() * n);
+                var temp = arr[index];
+                arr[index] = arr[n];
+                arr[n] = temp;
+            }
+        }
+        function rollEighteen() {
+            var dieValue = Math.floor(1 + Math.random() * 5);
+            var ptArr = new Array(4)
+            ptArr[0] = dieValue, ptArr[1] = dieValue, ptArr[2] = 6, ptArr[3] = 6;
+            shuffleSort(ptArr)
+            die1Img.setAttribute("src", "die" + ptArr[0] + ".jpg");
+            die1Img.setAttribute("alt", "die image with " + ptArr[0] + " spot(s)");
+            die2Img.setAttribute("src", "die" + ptArr[1] + ".jpg");
+            die2Img.setAttribute("alt", "die image with " + ptArr[1] + " spot(s)");
+            die3Img.setAttribute("src", "die" + ptArr[2] + ".jpg");
+            die3Img.setAttribute("alt", "die image with " + ptArr[2] + " spot(s)");
+            die4Img.setAttribute("src", "die" + ptArr[3] + ".jpg");
+            die4Img.setAttribute("alt", "die image with " + ptArr[3] + " spot(s)");
+            msg.innerHTML = '<p>Congratulations! Your roll is "十八"</p><img src = "congrats.png">';
+            msg.innerHTML += '<p>Your score is 12!</p>'
+        }
+        function rollDice() {
+            var die1Value = setImage(die1Img);
+            var die2Value = setImage(die2Img);
+            var die3Value = setImage(die3Img);
+            var die4Value = setImage(die4Img);
+            judge(die1Value, die2Value, die3Value, die4Value)
+        }
+        function setImage(dieImg) {
+            var dieValue = Math.floor(1 + Math.random() * 6);
+            dieImg.setAttribute("src", "die" + dieValue + ".jpg");
+            dieImg.setAttribute("alt", "die image with " + dieValue + " spot(s)");
+            return dieValue;
+        }
+        function judge(die1Value, die2Value, die3Value, die4Value) {
+            var point = new Array(4);
+            var msg = document.getElementById("msg");
+            point[0] = die1Value, point[1] = die2Value, point[2] = die3Value, point[3] = die4Value;
+            point.sort();
+            if (point[0] != point[1] && point[1] != point[2] && point[2] != point[3]) {
+                msg.innerHTML = '<p>Oops! Your roll is "無面"</p>'
+            } else if (point[0] == point[1] && point[1] == point[2] && point[2] == point[3]) {
+                msg.innerHTML = '<p>Congratulations! Your roll is "一色"</p><img src = "congrats.png">'
+            } else if ((point[0] == point[1] && point[1] == point[2]) || (point[1] == point[2] && point[2] == point[3])) {
+                msg.innerHTML = '<p>No decision, please re-roll the dice!</p>'
+            } else if (point[0] == point[1] && point[2] == point[3]) {
+                if (point[2] == 6) {
+                    msg.innerHTML = '<p>Congratulations! Your roll is "十八"</p><img src = "congrats.png">'
+                } else {
+                    msg.innerHTML = `<p>Your score is ${point[2] + point[3]} !</p>`
+                }
+            } else if (point[0] == point[1] || point[1] == point[2] || point[2] == point[3]) {
+                var getPt;
+                if (point[0] == point[1]) {
+                    getPt = point[2] + point[3];
+                } else if (point[1] == point[2]) {
+                    getPt = point[0] + point[3];
+                } else if (point[2] == point[3]) {
+                    getPt = point[0] + point[1];
+                }
+                msg.innerHTML = `<p>Your score is ${getPt} !</p>`
+            }
+        }
+        window.addEventListener("load", start, false);
+    </script>
+</head>
+
+<body>
+    <form action="#">
+        <input id="rollButton" type="button" value="Roll Dice">
+        <input id="cheatButton" type="button" value="Shortcut">
+        <input id="cheatButton2" type="button" value="Shortcut2">
+    </form>
+    <ol>
+        <li><img id="die1" class="dice" src="blank.jpg" alt="blank image"></li>
+        <li><img id="die2" class="dice" src="blank.jpg" alt="blank image"></li>
+        <li><img id="die3" class="dice" src="blank.jpg" alt="blank image"></li>
+        <li><img id="die4" class="dice" src="blank.jpg" alt="blank image"></li>
+    </ol>
+    <div id="msg"></div>
+</body>
+
+</html>

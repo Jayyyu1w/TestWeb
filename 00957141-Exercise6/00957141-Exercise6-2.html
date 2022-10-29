@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Resume</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            height: 100%;
+        }
+
+        body {
+            min-height: 100%;
+            background: #eee;
+            font-family: 'Lato', sans-serif;
+            font-weight: 400;
+            color: #222;
+            font-size: 18px;
+            line-height: 26px;
+            padding-bottom: 50px;
+        }
+
+        .container {
+            max-width: 700px;
+            background: linear-gradient(to right, #FCFFFA 0%, #FCFFFA 50%, #B3D6C4 50%, #B3D6C4 100%);
+            margin: 0px auto 0px;
+            box-shadow: 1px 1px 2px #DAD7D7;
+            border-radius: 3px;
+            padding: 40px;
+            margin-top: 50px;
+        }
+
+        .header {
+            margin-bottom: 30px;
+        }
+
+        .pic-style{
+            display:block;
+            margin:auto;
+            border-radius: 10px;
+        }
+
+        .full-name {
+            position:relative;
+            width: 100%;
+            font-size: 40px;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .first-name {
+            position:absolute;
+            top:150px;
+            left:70px;
+            font-weight: bold;
+        }
+
+        .last-name {
+            color:white;
+            position: absolute;
+            top:150px;
+            right:55px;
+            font-weight: bold;
+        }
+
+        .contact-info {
+            margin-bottom: 5px;
+        }
+
+        .email,
+        .phone {
+            color: #999;
+            font-weight: 300;
+        }
+
+        .position {
+            position: relative;
+            font-size: 26px;
+            font-weight: bold;
+            margin-right: 10px;
+            text-align: center;
+        }
+
+        .left-set{
+            position:absolute;
+            top: 0px;
+            left: 185px;
+        }
+
+        .right-set{
+            color:white;
+            position:absolute;
+            top: 0px;
+            left: 320px;
+        }
+
+        .details {
+            line-height: 20px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section:last-of-type {
+            margin-bottom: 0px;
+        }
+
+        .section__title {
+            font-size: 26px;
+            letter-spacing: 2px;
+            color: black;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .section__list-item {
+            margin-bottom: 30px;
+        }
+
+        .section__list-item:last-of-type {
+            margin-bottom: 0;
+        }
+
+        .left,
+        .right {
+            vertical-align: top;
+            display: inline-block;
+        }
+
+        .left-half {
+            float: left;
+            width: 55%;
+        }
+
+        .name {
+            font-weight: bold;
+        }
+
+        .person-info{
+            display:flex;
+        }
+
+        a {
+            text-decoration: none;
+            color: #000;
+            font-style: italic;
+        }
+
+        a:hover {
+            text-decoration: underline;
+            color: #000;
+        }
+
+        .skills__item {
+            margin-bottom: 10px;
+        }
+
+        input {
+            display: none;
+        }
+
+        .hr-left{
+            width: 80%;
+            height: 5px;
+            border:0;
+            margin-top: 5px;
+            margin-bottom: 3px;
+        }
+
+        .hr-right{
+            height: 5px;
+            border:0;
+            margin-top: 5px;
+            margin-bottom: 3px;
+        }
+
+        .hr-color1{
+            background-color: #B3D6C4;
+        }
+
+        .hr-color2{
+            background-color: #FCFFFA;
+        }
+
+        label {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background: #C3DEF3;
+            border-radius: 20px;
+            margin-right: 3px;
+        }
+
+        input:checked+label {
+            background: #79A9CE;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,300,700' rel='stylesheet' type='text/css'>
+
+    <div class="container">
+        <div class="header">
+            <div class = "full-name">
+                <span><img src = "pexels-italo-melo-2379004.jpg" width="30%" class = "pic-style"></span>
+                <span class = "first-name">LEVI</span>
+                <span class = "last-name">WEBB</span>
+            </div>
+            <br>
+            <div class="position">
+                <span class = "left-set">Front-End</span>
+                <span class = "right-set">Developer</span>
+            </div>
+        </div>
+        <br>
+        <div class="details">
+            <div class = "left-half">
+                <div class="section">
+                    <div class="section__title">Experience</div>
+                    <hr class = "hr-left hr-color1">
+                    <div class="section__list">
+                        <div class="section__list-item">
+                            <div class="left">
+                                <div class="name">TrapBox</div>
+                                <div class="addr">Hsinchu, TW</div>
+                                <div class="duration">Aug 2017 - Mar 2020</div>
+                            </div>
+                        </div>
+                        <div class="section__list-item">
+                            <div class="left">
+                                <div class="name">Akitect</div>
+                                <div class="addr">Taipei, TW</div>
+                                <div class="duration">May 2020 -</div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr class = "hr-left hr-color1">
+                </div>
+                <div class="section">
+                    <div class="section__title">Education</div>
+                    <div class="section__list">
+                        <hr class = "hr-left hr-color1">
+                        <div class="section__list-item">
+                            <div class="left">
+                                <div class="name">National Keelung University</div>
+                                <div class="addr">Keelung, TW</div>
+                                <div class="duration">Sep 2011 - Jun 2015</div>
+                            </div>
+                        </div>
+                        <div class="section__list-item">
+                            <div class="left">
+                                <div class="name">Taibei University</div>
+                                <div class="addr">Taipei, TW</div>
+                                <div class="duration">Sep 2015 - Jun 2017</div>
+                            </div>
+                        </div>
+                        <hr class = "hr-left hr-color1">
+                    </div>
+                </div>
+                <div class = "section">
+                    <div class="section__title">Contact</div>
+                    <hr class = "hr-left hr-color1">
+                    <div class="contact-info">
+                        <div class="email"><img src = "4812397.png" width = 25px> Email: </div>
+                        <div class="email-val"><a href = "mailto: leviwebb@gmail.com">leviwebb@gmail.com</a></div>
+                        <div class="phone"><img src = "455705.png" width = 25px> Phone: </div>
+                        <div class="phone-val">097-628-8763</div>
+                    </div>
+                    <hr class = "hr-left hr-color1">
+                </div>
+            </div>
+            <div>
+                <div class="section">
+                    <div class="section__title">Projects</div>
+                    <hr class = "hr-right hr-color2">
+                    <div class="section__list">
+                        <div class="section__list-item">
+                            <div class="name">Self-Resume Design</div>
+                            <div class="text">
+                                ◆ Implement web with html
+                                <br>
+                                ◆ Using css to decorate Resume
+                                <br>
+                                ◆ Using github repository to push
+                                self-designed web
+                            </div>
+                        </div>
+                    </div>
+                    <hr class = "hr-right hr-color2">
+                </div>
+                <div class="section">
+                    <div class="section__title">Self-introduct</div>
+                    <hr class = "hr-right hr-color2">
+                    <div class="section__list">
+                        <div class="section__list-item">
+                            <div>
+                                I am a front-end developer with 1 years of experience writing html, css, js. I'm
+                                motivated, result-focused and seeking a successful team-oriented company with opportunity to grow.
+                            </div>
+                        </div>
+                    </div>
+                    <hr class = "hr-right hr-color2">
+                </div>
+                <div class="section">
+                    <div class="section__title">Skills</div>
+                    <div class="skills">
+                        <img src = "Unofficial_JavaScript_logo_2.svg.png" width = 45px>
+                        &nbsp;&nbsp;&nbsp;
+                        <img src = "CSS3_logo_and_wordmark.svg.png" width = 40px>
+                    </div>
+                </div>
+                <div class="section">
+                    <div class="section__title">Interests</div>
+                    <div class="section__list">
+                        <div class="section__list-item">
+                            Basketball, programming, Watching movie.
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>
